@@ -1,0 +1,5 @@
+com\erp\MateusERP\service\VendorService.class
+com\erp\MateusERP\MateusErpApplication.class
+com\erp\MateusERP\dto\VendorDTO.class
+com\erp\MateusERP\controller\VendorController.class
+com\erp\MateusERP\repository\VendorMapper.class
