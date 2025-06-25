@@ -12,9 +12,8 @@ public class VendorDTO {
 	private String code;
 	private String name;
 	private String addBy;
-	private Date addDate;
+	private String addDate;
 	private String editBy;
-	private Date editDate;
-	
+	private String editDate;
 	
 }

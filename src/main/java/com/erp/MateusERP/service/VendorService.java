@@ -33,4 +33,15 @@ public class VendorService {
 								filter(v -> "TEST".equals(v.getCode())).
 								collect(Collectors.toList());
 	}
+	
+	public List<VendorDTO> GetVendorByID(Integer id) {
+		System.out.println(id);
+		
+		List<VendorDTO> AllVendors = vendorMapper.GetAllVendors();
+		
+		
+		return AllVendors.stream().
+								  filter(a -> id.equals(a.getId())).
+								  collect(Collectors.toList());
+	}
 }
