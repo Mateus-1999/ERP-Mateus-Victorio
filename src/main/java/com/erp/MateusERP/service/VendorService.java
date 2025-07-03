@@ -15,6 +15,7 @@ public class VendorService {
 	@Autowired
 	private VendorMapper vendorMapper;
 	
+	
 	public List<VendorDTO> GetAllVendors(){
 		List<VendorDTO> AllVendors = vendorMapper.GetAllVendors();
 		AllVendors.stream().findFirst();
@@ -43,5 +44,15 @@ public class VendorService {
 		return AllVendors.stream().
 								  filter(a -> id.equals(a.getId())).
 								  collect(Collectors.toList());
+	}
+	
+	public boolean CreateVendor(VendorDTO dto) {
+		try {
+			vendorMapper.InsertVendor(dto);
+		}
+		catch(Exception e) {
+			return false;
+		}
+		return true;
 	}
 }

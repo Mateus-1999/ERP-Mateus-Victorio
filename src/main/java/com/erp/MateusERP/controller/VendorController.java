@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,6 +51,15 @@ public class VendorController {
 	@GetMapping("GetVendorByID")
 	public List<VendorDTO> GetVendorByID(@RequestParam Integer id) {
 		return vendorService.GetVendorByID(id);
+	}
+	
+	@Operation(summary = "Add Vendor", description = "Add the Vendor passed by Request body in the VENDOR Table")
+	@PostMapping("CreateVendor")
+	public String createVendor(@RequestBody VendorDTO vendorDTO) {
+		if (vendorService.CreateVendor(vendorDTO))
+			return "Vendor inserted successfully";
+		else 
+			return "Fail to insert Vendor";
 	}
 
 }
